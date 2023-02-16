@@ -5,8 +5,6 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.codec.NettyKryoDecoder;
 import org.codec.NettyKryoEncoder;
@@ -37,6 +35,7 @@ public class NettyServer {
     }
 
     public static void main(String[] args) {
-        new NettyServer().run(8888);
+        int port = 8888;
+        new NettyServer().run(port);
     }
 }

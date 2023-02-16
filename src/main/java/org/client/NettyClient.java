@@ -33,9 +33,9 @@ public class NettyClient {
         });
     }
 
-    public RpcResponse sendMessage(RpcRequest rpcRequest) {
+    public RpcResponse sendMessage(String hostname, int port, RpcRequest rpcRequest) {
         try {
-            ChannelFuture channelFuture = bootstrap.connect(new InetSocketAddress("localhost", 8888)).sync();
+            ChannelFuture channelFuture = bootstrap.connect(new InetSocketAddress(hostname, port)).sync();
             log.info("connect success");
             Channel channel = channelFuture.channel();
             if (channel != null) {
@@ -57,8 +57,10 @@ public class NettyClient {
     }
 
     public static void main(String[] args) {
+        String hostname = "localhost";
+        int port = 8888;
         RpcRequest rpcRequest = RpcRequest.builder().interfaceName("interface").methodName("method").build();
-        RpcResponse rpcResponse = new NettyClient().sendMessage(rpcRequest);
+        RpcResponse rpcResponse = new NettyClient().sendMessage(hostname, port, rpcRequest);
         assert rpcResponse != null;
         log.info("rpcResponse: {}", rpcResponse.getMessage());
     }
