@@ -3,7 +3,7 @@ package org.serialize;
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
-import org.Exception.SerializeException;
+import org.exception.SerializeException;
 import org.entity.RpcRequest;
 import org.entity.RpcResponse;
 
