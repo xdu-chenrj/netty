@@ -18,12 +18,12 @@ import java.net.InetSocketAddress;
 
 @Slf4j
 public class NettyClient {
-    private static final Bootstrap b;
+    private static final Bootstrap bootstrap;
 
     static {
-        b = new Bootstrap();
+        bootstrap = new Bootstrap();
         KryoSerializer kryoSerializer = new KryoSerializer();
-        b.group(new NioEventLoopGroup()).channel(NioSocketChannel.class).handler(new ChannelInitializer<NioSocketChannel>() {
+        bootstrap.group(new NioEventLoopGroup()).channel(NioSocketChannel.class).handler(new ChannelInitializer<NioSocketChannel>() {
             @Override
             protected void initChannel(NioSocketChannel nioSocketChannel) {
                 nioSocketChannel.pipeline().addLast(new NettyKryoEncoder(kryoSerializer, RpcRequest.class));
@@ -33,22 +33,15 @@ public class NettyClient {
         });
     }
 
-    public static void main(String[] args) {
-        RpcRequest rpcRequest = RpcRequest.builder().interfaceName("interface").methodName("method").build();
-        RpcResponse rpcResponse = sendMessage(rpcRequest);
-        assert rpcResponse != null;
-        log.info("rpcResponse: {}", rpcResponse.getMessage());
-    }
-
-    public static RpcResponse sendMessage(RpcRequest rpcRequest) {
+    public RpcResponse sendMessage(RpcRequest rpcRequest) {
         try {
-            ChannelFuture channelFuture = b.connect(new InetSocketAddress("localhost", 8888)).sync();
+            ChannelFuture channelFuture = bootstrap.connect(new InetSocketAddress("localhost", 8888)).sync();
             log.info("connect success");
             Channel channel = channelFuture.channel();
             if (channel != null) {
                 channel.writeAndFlush(rpcRequest).addListener(future -> {
                     if (future.isSuccess()) {
-                        log.info("client send message: [{}]", rpcRequest.toString());
+                        log.info("client send message: {}", rpcRequest.toString());
                     } else {
                         log.error("client send message failed, ", future.cause());
                     }
@@ -61,6 +54,13 @@ public class NettyClient {
             log.error("occur exception when connect server:", e);
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        RpcRequest rpcRequest = RpcRequest.builder().interfaceName("interface").methodName("method").build();
+        RpcResponse rpcResponse = new NettyClient().sendMessage(rpcRequest);
+        assert rpcResponse != null;
+        log.info("rpcResponse: {}", rpcResponse.getMessage());
     }
 
 }

@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc0e826e-fd50-4c93-a26c-5a5079cec9f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Exception/SerializeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/client/NettyClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/client/NettyClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/codec/NettyKryoDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/codec/NettyKryoEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/entity/RpcRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/entity/RpcResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/serialize/KryoSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/serialize/Serializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/server/NettyServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/server/NettyServerHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+    <list default="true" id="dc0e826e-fd50-4c93-a26c-5a5079cec9f2" name="Changes" comment="netty网络通信v1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/client/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/client/NettyClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/server/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/server/NettyServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +67,19 @@
   }
 }</component>
   <component name="RunManager" selected="Application.NettyClient">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Main" />
+      <module name="netty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.client.NettyClient" />
       <module name="netty" />
@@ -114,6 +110,7 @@
       <list>
         <item itemvalue="Application.NettyClient" />
         <item itemvalue="Application.NettyServer" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -128,11 +125,23 @@
       <workItem from="1676262140823" duration="1346000" />
       <workItem from="1676274562375" duration="4216000" />
       <workItem from="1676434718534" duration="12963000" />
-      <workItem from="1676514925068" duration="2620000" />
+      <workItem from="1676514925068" duration="4256000" />
     </task>
+    <task id="LOCAL-00001" summary="netty网络通信v1">
+      <created>1676518895445</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676518895445</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="netty网络通信v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="netty网络通信v1" />
   </component>
 </project>
